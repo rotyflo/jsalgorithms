@@ -17,9 +17,7 @@ function reverseString(str) {
 function factorialize(num) {
   let factorial = 1
 
-  for (let i = 2 i <= num i++) {
-    factorial *= i
-  }
+  for (let i = 2; i <= num; i++) factorial *= i
 
   return factorial
 }
@@ -28,7 +26,7 @@ function factorialize(num) {
 
 function findLongestWordLength(str) {
   let words = str.split(' ')
-  let longest = 0;
+  let longest = 0
 
   words.forEach(word => {
     if (word.length > longest) longest = word.length
