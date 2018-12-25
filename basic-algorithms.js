@@ -65,9 +65,20 @@ function largestOfFour(arr) {
 function confirmEnding(str, target) {
   let lastChars = str.slice(-target.length)
 
-  if (lastChars === target) return true
-
-  return false
+  return lastChars === target ? true : false
 }
 
 // console.log(confirmEnding("Bastian", "n"))
+
+function repeatStringNumTimes(str, num) {
+  let repeatedString = ''
+
+  while (num > 0) {
+    repeatedString += str
+    num--
+  }
+
+  return repeatedString
+}
+
+// console.log(repeatStringNumTimes("abc", 3))
