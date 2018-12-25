@@ -4,7 +4,6 @@ function convertToF(celsius) {
   return fahrenheit
 }
 
-// console.log(convertToF(30))
 
 function reverseString(str) {
   let reversed = str.split('').reverse().join('')
@@ -12,7 +11,6 @@ function reverseString(str) {
   return reversed
 }
 
-// console.log(reverseString("hello"))
 
 function factorialize(num) {
   let factorial = 1
@@ -22,7 +20,6 @@ function factorialize(num) {
   return factorial
 }
 
-// console.log(factorialize(5))
 
 function findLongestWordLength(str) {
   let words = str.split(' ')
@@ -35,9 +32,6 @@ function findLongestWordLength(str) {
   return longest
 }
 
-// console.log(
-//   findLongestWordLength("The quick brown fox jumped over the lazy dog")
-// )
 
 function largestOfFour(arr) {
   let largestNumbers = []
@@ -55,12 +49,6 @@ function largestOfFour(arr) {
   return largestNumbers
 }
 
-// console.log(largestOfFour([
-//   [4, 5, 1, 3],
-//   [13, 27, 18, 26],
-//   [32, 35, 37, 39],
-//   [1000, 1001, 857, 1]
-// ]))
 
 function confirmEnding(str, target) {
   let lastChars = str.slice(-target.length)
@@ -68,7 +56,6 @@ function confirmEnding(str, target) {
   return lastChars === target ? true : false
 }
 
-// console.log(confirmEnding("Bastian", "n"))
 
 function repeatStringNumTimes(str, num) {
   let repeatedString = ''
@@ -81,4 +68,86 @@ function repeatStringNumTimes(str, num) {
   return repeatedString
 }
 
-// console.log(repeatStringNumTimes("abc", 3))
+
+function truncateString(str, num) {
+  let shortString = str.slice(0, num) + '...'
+
+  return num >= str.length ? str : shortString
+}
+
+
+function findElement(arr, func) {
+  for (let num of arr) if (func(num)) return num
+}
+
+
+function booWho(bool) {
+  return typeof bool === 'boolean' ? true : false
+}
+
+
+function titleCase(str) {
+  let words = str.split(' ')
+  let titleWords = []
+
+  words.forEach(word => {
+    let titleWord = word[0].toUpperCase() + word.slice(1).toLowerCase()
+
+    titleWords.push(titleWord)
+  })
+
+  let titleStr = titleWords.join(' ')
+
+  return titleStr
+}
+
+
+function frankenSplice(arr1, arr2, n) {
+  let spliced = arr2.slice()
+
+  arr1.forEach(item => {
+    spliced.splice(n++, 0, item)
+  })
+
+  return spliced
+}
+
+
+function bouncer(arr) {
+  let filteredArr = arr.filter(item => item)
+
+  return filteredArr
+}
+
+
+function getIndexToIns(arr, num) {
+  arr.sort((a, b) => a - b)
+
+  for (let item of arr) if (num <= item) return arr.indexOf(item)
+
+  return arr.length
+}
+
+
+function mutation(arr) {
+  let str = arr[0].toLowerCase()
+  let requiredLetters = arr[1].toLowerCase().split('')
+
+  for (let letter of requiredLetters) {
+    if (str.indexOf(letter) === - 1) return false
+  }
+
+  return true
+}
+
+
+function chunkArrayInGroups(arr, size) {
+  let arrCopy = arr.slice()
+  let subArrays = []
+
+  while (arrCopy.length > 0) {
+    subArrays.push(arrCopy.splice(0, size))
+  }
+
+  return subArrays
+}
