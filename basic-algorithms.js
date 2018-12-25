@@ -61,3 +61,13 @@ function largestOfFour(arr) {
 //   [32, 35, 37, 39],
 //   [1000, 1001, 857, 1]
 // ]))
+
+function confirmEnding(str, target) {
+  let lastChars = str.slice(-target.length)
+
+  if (lastChars === target) return true
+
+  return false
+}
+
+// console.log(confirmEnding("Bastian", "n"))
