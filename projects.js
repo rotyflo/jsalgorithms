@@ -1,11 +1,11 @@
 function palindrome(str) {
-  let alphanumeric = 'abcdefghijklmnopqrstuvwxyz0123456789'
+  let alphanumeric = /[a-z0-9]/
   let characters = str.toLowerCase().split('')
   let alphaNumStr = ''
   let reverseStr = ''
 
   characters.forEach(char => {
-    if (alphanumeric.indexOf(char) >= 0) {
+    if (char.match(alphanumeric)) {
       alphaNumStr += char
       reverseStr = char + reverseStr
     }
