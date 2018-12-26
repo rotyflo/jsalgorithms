@@ -1,3 +1,22 @@
+function palindrome(str) {
+  let alphanumeric = 'abcdefghijklmnopqrstuvwxyz0123456789'
+  let characters = str.toLowerCase().split('')
+  let alphaNumStr = ''
+  let reverseStr = ''
+
+  characters.forEach(char => {
+    if (alphanumeric.indexOf(char) >= 0) {
+      alphaNumStr += char
+      reverseStr = char + reverseStr
+    }
+  })
+
+  let isPalindrome = alphaNumStr === reverseStr
+
+  return isPalindrome
+}
+
+
 function convertToRoman(num) {
   const romanNums = {
     1000: 'M',
@@ -46,3 +65,5 @@ function rot13(str) {
 
   return decodedStr
 }
+
+
