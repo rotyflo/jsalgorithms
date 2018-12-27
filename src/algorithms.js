@@ -4,100 +4,115 @@ module.exports = {
   // BASIC ALGORITHMS
 
 
-  convertToF: (celsius) => {
+  convertToF(celsius) {
     let fahrenheit = celsius * 9 / 5 + 32
 
     return fahrenheit
   },
 
 
-  reverseString: (str) => {
+  reverseString(str) {
     let reversed = str.split('').reverse().join('')
 
     return reversed
   },
 
 
-  factorialize: (num) => {
+  factorialize(num) {
     let factorial = 1
 
-    for (let i = 2; i <= num; i++) factorial *= i
+    for (let i = 2; i <= num; i++) {
+      factorial *= i
+    }
 
     return factorial
   },
 
 
-  findLongestWordLength: (str) => {
+  findLongestWordLength(str) {
     let words = str.split(' ')
     let longest = 0
 
-    words.forEach(word => if (word.length > longest) longest = word.length)
+    for (let word of words) {
+      if (word.length > longest) {
+        longest = word.length
+      }
+    }
 
     return longest
   },
 
 
-  largestOfFour: (arr) => {
+  largestOfFour(arr) {
     let largestNumbers = []
 
-    arr.forEach(subArr => {
+    for (let subArr of arr) {
       let largest = subArr[0]
 
-      subArr.forEach(num => if (num > largest) largest = num)
+      for (let num of subArr) {
+        if (num > largest) {
+          largest = num
+        }
+      }
 
       largestNumbers.push(largest)
-    })
+    }
 
     return largestNumbers
   },
 
 
-  confirmEnding: (str, target) => {
+  confirmEnding(str, target) {
     let lastChars = str.slice(-target.length)
+    let endsInTarget = lastChars === target
 
-    return lastChars === target ? true : false
+    return endsInTarget
   },
 
 
-  repeatStringNumTimes: (str, num) => {
+  repeatStringNumTimes(str, num) {
     let repeatedString = ''
 
-    while (num > 0) {
+    for (let i = 0; i < num; i++) {
       repeatedString += str
-      num--
     }
 
     return repeatedString
   },
 
 
-  truncateString: (str, num) => {
+  truncateString(str, num) {
     let shortString = str.slice(0, num) + '...'
 
     return num >= str.length ? str : shortString
   },
 
   
-  findElement: (arr, func) => {
-    arr = JSON.parse(arr)
-    func = JSON.parse(func)
-
-    for (let num of arr) if (func(num)) return num
+  findElement(arr, func) {
+    for (let num of arr) {
+      if (func(num)) {
+        return num
+      }
+    }
   },
 
   
-  booWho: (bool) => {return typeof bool === 'boolean' ? true : false},
+  booWho(bool) {
+    let isBoolean = typeof bool === 'boolean'
+    
+    return isBoolean
+  },
 
 
-  titleCase: (str) => {
+  titleCase(str) {
     let words = str.split(' ')
     let titleWords = []
 
-    words.forEach(word => {
+    for (let word of words) {
       let titleWord = word[0].toUpperCase() + word.slice(1).toLowerCase()
 
       titleWords.push(titleWord)
-    })
+    }
 
     let titleStr = titleWords.join(' ')
 
@@ -105,48 +120,58 @@ module.exports = {
   },
 
 
-  frankenSplice: (arr1, arr2, n) => {
+  frankenSplice(arr1, arr2, n) {
     let spliced = arr2.slice()
 
-    arr1.forEach(item => spliced.splice(n++, 0, item))
+    for (let item of arr1) {
+      spliced.splice(n++, 0, item)
+    }
 
     return spliced
   },
 
 
-  bouncer: (arr) => {
+  bouncer(arr) {
     let filteredArr = arr.filter(item => item)
 
     return filteredArr
   },
 
 
-  getIndexToIns: (arr, num) => {
+  getIndexToIns(arr, num) {
     arr.sort((a, b) => a - b)
 
-    for (let item of arr) if (num <= item) return arr.indexOf(item)
+    for (let item of arr) {
+      if (num <= item) {
+        return arr.indexOf(item)
+      }
+    }
 
     return arr.length
   },
 
 
-  mutation: (arr) => {
+  mutation(arr) {
     let str = arr[0].toLowerCase()
-    let requiredLetters = arr[1].toLowerCase().split('')
+    let requiredletters = arr[1].toLowerCase().split('')
 
-    for (let letter of requiredLetters) {
-      if (str.indexOf(letter) === - 1) return false
+    for (let letter of requiredletters) {
+      if (str.indexOf(letter) === -1) {
+        return false
+      }
     }
 
     return true
   },
 
 
-  chunkArrayInGroups: (arr, size) => {
+  chunkArrayInGroups(arr, size) {
     let arrCopy = arr.slice()
     let subArrays = []
 
-    while (arrCopy.length > 0) subArrays.push(arrCopy.splice(0, size))
+    while (arrCopy.length > 0) {
+      subArrays.push(arrCopy.splice(0, size))
+    }
 
     return subArrays
   },
@@ -155,14 +180,16 @@ module.exports = {
   // INTERMEDIATE ALGORITHMS
 
 
-  sumAll: (arr) => {
+  sumAll(arr) {
     arr.sort((a, b) => a - b)
 
-    let sm = arr[0],
-        lg = arr[1],
-        sum = 0
+    let sm = arr[0]
+    let lg = arr[1]
+    let sum = 0
 
-    for (let i = sm; i < lg + 1; i++) sum += i
+    for (let i = sm; i < lg + 1; i++) {
+      sum += i
+    }
 
     return sum
   },
@@ -171,18 +198,18 @@ module.exports = {
   // PROJECTS
 
 
-  palindrome: (str) => {
+  palindrome(str) {
     let alphanumeric = /[a-z0-9]/
     let characters = str.toLowerCase().split('')
     let alphaNumStr = ''
     let reverseStr = ''
 
-    characters.forEach(char => {
+    for (let char of characters) {
       if (char.match(alphanumeric)) {
         alphaNumStr += char
         reverseStr = char + reverseStr
       }
-    })
+    }
 
     let isPalindrome = alphaNumStr === reverseStr
 
@@ -190,11 +217,8 @@ module.exports = {
   },
 
 
-  convertToRoman: (num) => {
-    // ENSURES COMPATIBILITY WITH CLI
-    num = Number(num)
-
-    const romanNums = {
+  convertToRoman(num) {
+    let romanNums = {
       1000: 'M',
       900: 'CM',
       500: 'D',
@@ -212,20 +236,20 @@ module.exports = {
     let convertedNum = ''
     let decimalVals = Object.keys(romanNums).reverse()
 
-    decimalVals.forEach(decimalVal => {
+    for (let decimalVal of decimalVals) {
       while (num >= decimalVal) {
         let romanNum = romanNums[decimalVal]
 
         convertedNum += romanNum
         num -= decimalVal
       }
-    })
+    }
 
     return convertedNum
   },
 
 
-  rot13: (str) => {
+  rot13(str) {
     let decodedStr = ''
 
     for (let i = 0; i < str.length; i++) {
@@ -235,10 +259,12 @@ module.exports = {
       if (charCode >= 65 && charCode <= 90) {
         decodedCode = charCode < 78 ? charCode + 13 : charCode - 13
       }
-      
+
+
       decodedStr += String.fromCharCode(decodedCode)
     }
 
     return decodedStr
   }
 }
+
