@@ -35,6 +35,9 @@ module.exports = {
 
 
   largestOfFour: (arr) => {
+    // ENSURES COMPATIBILY WITH CLI
+    arr = JSON.parse(arr)
+
     let largestNumbers = []
 
     arr.forEach(subArr => {
@@ -78,6 +81,9 @@ module.exports = {
 
 
   findElement: (arr, func) => {
+    arr = JSON.parse(arr)
+    func = JSON.parse(func)
+
     for (let num of arr) if (func(num)) return num
   },
 

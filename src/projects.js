@@ -19,6 +19,9 @@ module.exports = {
 
 
   convertToRoman: (num) => {
+    // ENSURES COMPATIBILITY WITH CLI
+    num = Number(num)
+
     const romanNums = {
       1000: 'M',
       900: 'CM',
