@@ -1,35 +1,31 @@
-const basic = require('./src/basic.js')
-const projects = require('./src/projects.js')
+const algorithms = require('./src/algorithms.js')
 const rl = require('readline-sync')
 const getArgs = require('get-parameter-names')
 
-let basicNames = Object.keys(basic)
-let projectNames = Object.keys(projects)
-let funcNames = [...basicNames, ...projectNames]
-let descriptions = basic['descriptions']
+let algoNames = Object.keys(algorithms)
 
 console.log('\nLIST OF FUNCTIONS')
 
-for (let i = 0; i < funcNames.length; i++) console.log(`  ${i}. ${funcNames[i]}`)
+for (let i = 0; i < algoNames.length; i++) {
+  console.log(`  ${i}. ${algoNames[i]}`)
+}
 
 let index = rl.question('\nPick a number: ')
-let selectedFunc = funcNames[index]
-let selectedModule
+let funcName = algoNames[index]
+let func = algorithms[funcName]
 
-if (basicNames.indexOf(selectedFunc) >= 0) selectedModule = basic
-else if (projectNames.indexOf(selectedFunc) >= 0) selectedModule = projects
+console.log('\n' + funcName)
 
-console.log('\n' + selectedFunc)
-
-let args = getArgs(selectedModule[selectedFunc])
-
+let args = getArgs(func)
 let inputs = []
 
 for (let i = 0; i < args.length; i++) {
-  inputs.push(rl.question(args[i] + ': '))
+  let arg = rl.question(args[i] + ': ')
+
+  inputs.push(arg)
 }
 
-console.log('result: ' + selectedModule[selectedFunc](
+console.log('result: ' + func(
   inputs[0],
   inputs[1],
   inputs[2],
