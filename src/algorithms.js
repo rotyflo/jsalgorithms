@@ -31,25 +31,19 @@ module.exports = {
     let words = str.split(' ')
     let longest = 0
 
-    words.forEach(word => {
-      if (word.length > longest) longest = word.length
-    })
+    words.forEach(word => if (word.length > longest) longest = word.length)
 
     return longest
   },
 
 
   largestOfFour: (arr) => {
-    CLIifiy(arr)
-
     let largestNumbers = []
 
     arr.forEach(subArr => {
       let largest = subArr[0]
 
-      subArr.forEach(num => {
-        if (num > largest) largest = num
-      })
+      subArr.forEach(num => if (num > largest) largest = num)
 
       largestNumbers.push(largest)
     })
@@ -92,9 +86,7 @@ module.exports = {
   },
 
   
-  booWho: (bool) => {
-    return typeof bool === 'boolean' ? true : false
-  },
+  booWho: (bool) => {return typeof bool === 'boolean' ? true : false},
 
 
   titleCase: (str) => {
@@ -116,9 +108,7 @@ module.exports = {
   frankenSplice: (arr1, arr2, n) => {
     let spliced = arr2.slice()
 
-    arr1.forEach(item => {
-      spliced.splice(n++, 0, item)
-    })
+    arr1.forEach(item => spliced.splice(n++, 0, item))
 
     return spliced
   },
@@ -156,9 +146,7 @@ module.exports = {
     let arrCopy = arr.slice()
     let subArrays = []
 
-    while (arrCopy.length > 0) {
-      subArrays.push(arrCopy.splice(0, size))
-    }
+    while (arrCopy.length > 0) subArrays.push(arrCopy.splice(0, size))
 
     return subArrays
   },
@@ -174,9 +162,7 @@ module.exports = {
         lg = arr[1],
         sum = 0
 
-    for (let i = sm; i < lg + 1; i++) {
-      sum += i
-    }
+    for (let i = sm; i < lg + 1; i++) sum += i
 
     return sum
   },
