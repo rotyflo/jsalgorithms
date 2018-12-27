@@ -166,8 +166,20 @@ module.exports = {
 
   // INTERMEDIATE ALGORITHMS
 
-  
-  
+
+  sumAll: (arr) => {
+    arr.sort((a, b) => a - b)
+
+    let sm = arr[0],
+        lg = arr[1],
+        sum = 0
+
+    for (let i = sm; i < lg + 1; i++) {
+      sum += i
+    }
+
+    return sum
+  },
 
 
   // PROJECTS
