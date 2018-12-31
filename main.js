@@ -4,13 +4,34 @@ const getParams = require('get-parameter-names')
 
 let algoNames = Object.keys(algorithms)
 
+let formatFuncName = (func) => {
+  let titledFunc = ''
+
+  for (let i in func) {
+    let char = func[i]
+
+    if (char === char.toUpperCase()) {
+      titledFunc += ' ' + char
+    }
+    else {
+      titledFunc += char.toUpperCase()
+    }
+  }
+
+  return titledFunc
+}
+
 while (true) {
   console.clear()
 
   console.log("LIST OF FUNCTIONS\n(enter 'q' to quit)\n")
 
   for (let i in algoNames) {
-    console.log(`\t${i}. ${algoNames[i]}`)
+    let menuItem = i < 10 ? '\t ' : '\t'
+
+    menuItem += `${i}  ${formatFuncName(algoNames[i])}`
+    
+    console.log(menuItem)
   }
 
   let index = rl.question('\nPick a number: ')
@@ -24,10 +45,11 @@ while (true) {
   let func = algorithms[funcName]
 
   console.clear()
-  
-  while (true) {
-    console.log('\n' + funcName)
 
+  console.log(formatFuncName(funcName))
+  console.log("(enter 'q' to return to menu)\n")
+
+  while (true) {
     let params = getParams(func)
     let args = []
 
@@ -42,5 +64,6 @@ while (true) {
     if (args[0] === 'q') break
 
     console.log('result: ' + func(args[0], args[1], args[2], args[3]))
+    console.log()
   }
 }
