@@ -227,6 +227,31 @@ module.exports = {
   },
 
 
+  // Intermediate Algorithm Scripting: Wherefore art thou //
+
+
+  spinalCase(str) {
+  let spinal = str[0];
+  
+  for (let i = 1; i < str.length; i++) {
+    let char = str[i];
+
+    if ('-_ '.includes(char)) {
+      spinal += '-' + str[i + 1];
+      i++;
+    }
+    else if (char === char.toUpperCase()) {
+      spinal += '-' + char;
+    }
+    else {
+      spinal += char;
+    }
+  }
+
+  return spinal.toLowerCase();
+},
+
+
   // PROJECTS
 
 
