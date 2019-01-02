@@ -5,175 +5,175 @@ module.exports = {
 
 
   convertToF(celsius) {
-    let fahrenheit = celsius * 9 / 5 + 32
+    let fahrenheit = celsius * 9 / 5 + 32;
 
-    return fahrenheit
+    return fahrenheit;
   },
 
 
   reverseString(str) {
-    let reversed = str.split('').reverse().join('')
+    let reversed = str.split('').reverse().join('');
 
-    return reversed
+    return reversed;
   },
 
 
   factorialize(num) {
-    let factorial = 1
+    let factorial = 1;
 
     for (let i = 2; i <= num; i++) {
-      factorial *= i
+      factorial *= i;
     }
 
-    return factorial
+    return factorial;
   },
 
 
   findLongestWordLength(str) {
-    let words = str.split(' ')
-    let longest = 0
+    let words = str.split(' ');
+    let longest = 0;
 
     for (let word of words) {
       if (word.length > longest) {
-        longest = word.length
+        longest = word.length;
       }
     }
 
-    return longest
+    return longest;
   },
 
 
   largestOfFour(arr) {
-    let largestNumbers = []
+    let largestNumbers = [];
 
     for (let subArr of arr) {
-      let largest = subArr[0]
+      let largest = subArr[0];
 
       for (let num of subArr) {
         if (num > largest) {
-          largest = num
+          largest = num;
         }
       }
 
-      largestNumbers.push(largest)
+      largestNumbers.push(largest);
     }
 
-    return largestNumbers
+    return largestNumbers;
   },
 
 
   confirmEnding(str, target) {
-    let lastChars = str.slice(-target.length)
-    let endsInTarget = lastChars === target
+    let lastChars = str.slice(-target.length);
+    let endsInTarget = lastChars === target;
 
-    return endsInTarget
+    return endsInTarget;
   },
 
 
   repeatStringNumTimes(str, num) {
-    let repeatedString = ''
+    let repeatedString = '';
 
     for (let i = 0; i < num; i++) {
-      repeatedString += str
+      repeatedString += str;
     }
 
-    return repeatedString
+    return repeatedString;
   },
 
 
   truncateString(str, num) {
-    let shortString = str.slice(0, num) + '...'
+    let shortString = str.slice(0, num) + '...';
 
-    return num >= str.length ? str : shortString
+    return num >= str.length ? str : shortString;
   },
 
   
   findElement(arr, func) {
     for (let num of arr) {
       if (func(num)) {
-        return num
+        return num;
       }
     }
   },
 
   
   booWho(bool) {
-    let isBoolean = typeof bool === 'boolean'
+    let isBoolean = typeof bool === 'boolean';
     
-    return isBoolean
+    return isBoolean;
   },
 
 
   titleCase(str) {
-    let words = str.split(' ')
-    let titleWords = []
+    let words = str.split(' ');
+    let titleWords = [];
 
     for (let word of words) {
-      let titleWord = word[0].toUpperCase() + word.slice(1).toLowerCase()
+      let titleWord = word[0].toUpperCase() + word.slice(1).toLowerCase();
 
-      titleWords.push(titleWord)
+      titleWords.push(titleWord);
     }
 
-    let titleStr = titleWords.join(' ')
+    let titleStr = titleWords.join(' ');
 
-    return titleStr
+    return titleStr;
   },
 
 
   frankenSplice(arr1, arr2, n) {
-    let spliced = arr2.slice()
+    let spliced = arr2.slice();
 
     for (let item of arr1) {
-      spliced.splice(n++, 0, item)
+      spliced.splice(n++, 0, item);
     }
 
-    return spliced
+    return spliced;
   },
 
 
   bouncer(arr) {
-    let filteredArr = arr.filter(item => item)
+    let filteredArr = arr.filter(item => item);
 
-    return filteredArr
+    return filteredArr;
   },
 
 
   getIndexToIns(arr, num) {
-    arr.sort((a, b) => a - b)
+    arr.sort((a, b) => a - b);
 
     for (let item of arr) {
       if (num <= item) {
-        return arr.indexOf(item)
+        return arr.indexOf(item);
       }
     }
 
-    return arr.length
+    return arr.length;
   },
 
 
   mutation(arr) {
-    let str = arr[0].toLowerCase()
-    let requiredletters = arr[1].toLowerCase().split('')
+    let str = arr[0].toLowerCase();
+    let requiredletters = arr[1].toLowerCase().split('');
 
     for (let letter of requiredletters) {
       if (str.indexOf(letter) === -1) {
-        return false
+        return false;
       }
     }
 
-    return true
+    return true;
   },
 
 
   chunkArrayInGroups(arr, size) {
-    let arrCopy = arr.slice()
-    let subArrays = []
+    let arrCopy = arr.slice();
+    let subArrays = [];
 
     while (arrCopy.length > 0) {
-      subArrays.push(arrCopy.splice(0, size))
+      subArrays.push(arrCopy.splice(0, size));
     }
 
-    return subArrays
+    return subArrays;
   },
 
 
@@ -181,17 +181,36 @@ module.exports = {
 
 
   sumAll(arr) {
-    arr.sort((a, b) => a - b)
+    arr.sort((a, b) => a - b);
 
-    let sm = arr[0]
-    let lg = arr[1]
-    let sum = 0
+    let sm = arr[0];
+    let lg = arr[1];
+    let sum = 0;
 
     for (let i = sm; i < lg + 1; i++) {
-      sum += i
+      sum += i;
     }
 
-    return sum
+    return sum;
+  },
+
+
+  diffArray(arr1, arr2) {
+    let difference = [];
+    
+    for (let item of arr1) {
+      if (arr2.indexOf(item) === -1) {
+        difference.push(item);
+      }
+    }
+
+    for (let item of arr2) {
+      if (arr1.indexOf(item) === -1) {
+        difference.push(item);
+      }
+    }
+
+    return difference;
   },
 
 
@@ -199,21 +218,21 @@ module.exports = {
 
 
   palindrome(str) {
-    let alphanumeric = /[a-z0-9]/
-    let characters = str.toLowerCase().split('')
-    let alphaNumStr = ''
-    let reverseStr = ''
+    let alphanumeric = /[a-z0-9]/;
+    let characters = str.toLowerCase().split('');
+    let alphaNumStr = '';
+    let reverseStr = '';
 
     for (let char of characters) {
       if (char.match(alphanumeric)) {
-        alphaNumStr += char
-        reverseStr = char + reverseStr
+        alphaNumStr += char;
+        reverseStr = char + reverseStr;
       }
     }
 
-    let isPalindrome = alphaNumStr === reverseStr
+    let isPalindrome = alphaNumStr === reverseStr;
 
-    return isPalindrome
+    return isPalindrome;
   },
 
 
@@ -232,39 +251,39 @@ module.exports = {
       5: 'V',
       4: 'IV',
       1: 'I'
-    }
-    let convertedNum = ''
-    let decimalVals = Object.keys(romanNums).reverse()
+    };
+    let convertedNum = '';
+    let decimalVals = Object.keys(romanNums).reverse();
 
     for (let decimalVal of decimalVals) {
       while (num >= decimalVal) {
-        let romanNum = romanNums[decimalVal]
+        let romanNum = romanNums[decimalVal];
 
-        convertedNum += romanNum
-        num -= decimalVal
+        convertedNum += romanNum;
+        num -= decimalVal;
       }
     }
 
-    return convertedNum
+    return convertedNum;
   },
 
 
   rot13(str) {
-    let decodedStr = ''
+    let decodedStr = '';
 
     for (let i = 0; i < str.length; i++) {
-      let charCode = str.charCodeAt(i)
-      let decodedCode = charCode
+      let charCode = str.charCodeAt(i);
+      let decodedCode = charCode;
 
       if (charCode >= 65 && charCode <= 90) {
-        decodedCode = charCode < 78 ? charCode + 13 : charCode - 13
+        decodedCode = charCode < 78 ? charCode + 13 : charCode - 13;
       }
 
 
-      decodedStr += String.fromCharCode(decodedCode)
+      decodedStr += String.fromCharCode(decodedCode);
     }
 
-    return decodedStr
+    return decodedStr;
   }
 }
 
