@@ -214,6 +214,19 @@ module.exports = {
   },
 
 
+  destroyer(arr) {
+    let forbiddenItems = [];
+    
+    for (let i = 1; i < arguments.length; i++) {
+      forbiddenItems.push(arguments[i]);
+    }
+
+    let filtered = arr.filter(item => forbiddenItems.indexOf(item) === -1);
+
+    return filtered;
+  },
+
+
   // PROJECTS
 
 
