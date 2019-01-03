@@ -277,6 +277,23 @@ module.exports = {
   },
 
 
+  pairElement(str) {
+    let basePairs = {
+      A: 'T',
+      T: 'A',
+      C: 'G',
+      G: 'C'
+    };
+    let completePairs = [];
+
+    for (let item of str) {
+      completePairs.push([item, basePairs[item]]);
+    }
+
+    return completePairs;
+  }
+
+
   // PROJECTS
 
 
