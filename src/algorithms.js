@@ -291,7 +291,20 @@ module.exports = {
     }
 
     return completePairs;
-  }
+  },
+
+
+  fearNotLetter(str) {
+    let correctCode = str.charCodeAt(0);
+
+    for (let i in str) {
+      let charCode = str.charCodeAt(i);
+
+      if (charCode === correctCode) correctCode++;
+
+      else return String.fromCharCode(correctCode);
+    }
+  },
 
 
   // PROJECTS
