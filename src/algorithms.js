@@ -264,6 +264,19 @@ module.exports = {
   },
 
 
+  myReplace(str, before, after) {
+    let beforeIsCapitalized = before[0] === before[0].toUpperCase();
+    let capitalizedAfter = after[0].toUpperCase() + after.slice(1);
+
+    return str.replace(before, () => {
+      if (beforeIsCapitalized) {
+        return capitalizedAfter;
+      }
+      else return after;
+    });
+  },
+
+
   // PROJECTS
 
 
