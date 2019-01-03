@@ -231,25 +231,37 @@ module.exports = {
 
 
   spinalCase(str) {
-  let spinal = str[0];
-  
-  for (let i = 1; i < str.length; i++) {
-    let char = str[i];
+    let spinal = str[0];
+    
+    for (let i = 1; i < str.length; i++) {
+      let char = str[i];
 
-    if ('-_ '.includes(char)) {
-      spinal += '-' + str[i + 1];
-      i++;
+      if ('-_ '.includes(char)) {
+        spinal += '-' + str[i + 1];
+        i++;
+      }
+      else if (char === char.toUpperCase()) {
+        spinal += '-' + char;
+      }
+      else {
+        spinal += char;
+      }
     }
-    else if (char === char.toUpperCase()) {
-      spinal += '-' + char;
-    }
-    else {
-      spinal += char;
-    }
-  }
 
-  return spinal.toLowerCase();
-},
+    return spinal.toLowerCase();
+  },
+
+
+  translatePigLatin(str) {
+    // Index of the first occuring vowel
+    let i = str.search(/[aeiou]/);
+
+    if (i === 0) return str + 'way';
+
+    else if (i === -1) return str + 'ay';
+    
+    else return str.slice(i) + str.slice(0, i) + 'ay';
+  },
 
 
   // PROJECTS
