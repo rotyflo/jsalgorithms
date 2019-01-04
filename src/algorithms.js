@@ -307,6 +307,24 @@ module.exports = {
   },
 
 
+  uniteUnique(arr) {
+    let uniqueItems = [];
+    
+    for (let arg of arguments) {
+      for (let item of arg) {
+        if (uniqueItems.indexOf(item) === -1) {
+          uniqueItems.push(item);
+        }
+      }
+    }
+
+    return uniqueItems;
+  },
+
+
+  
+
+
   // PROJECTS
 
 
