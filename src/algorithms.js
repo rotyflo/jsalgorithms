@@ -296,14 +296,20 @@ module.exports = {
 
   fearNotLetter(str) {
     let correctCode = str.charCodeAt(0);
+    let missingChar = '';
 
     for (let i in str) {
       let charCode = str.charCodeAt(i);
 
-      if (charCode === correctCode) correctCode++;
-
-      else return String.fromCharCode(correctCode);
+      if (charCode === correctCode) {
+        correctCode++;
+      }
+      else {
+        missingChar = String.fromCharCode(correctCode);
+      }
     }
+
+    return missingChar;
   },
 
 
@@ -322,7 +328,25 @@ module.exports = {
   },
 
 
-  
+  convertHTML(str) {
+    let obj = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&apos;'
+    }
+    let convertedStr = '';
+    
+    for (let char of str) {
+      if (char in obj) {
+        convertedStr += obj[char];
+      }
+      else convertedStr += char;
+    }
+
+    return convertedStr;
+  },
 
 
   // PROJECTS
